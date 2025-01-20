@@ -1,40 +1,23 @@
 
-let countdown;
-const timerDisplay = document.getElementById('timer');
-const startButton = document.getElementById('startButton');
-const resetButton = document.getElementById('resetButton');
+// Handle Login
+const loginForm = document.getElementById("login-form")
+const errorMessage = document.getElementById("error-message")
 
-let timeLeft = 60*60*2+60*5+8;
+loginForm.addEventListener("submit", async (event) => {
+    event.preventDefault()
 
-function displayTime(seconds) {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60)
-    const remainderSeconds = ((seconds % 3600) % 60) % 60
-    timerDisplay.textContent = `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(remainderSeconds).padStart(2, "0")}`;
-}
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-function startTimer() {
-    clearInterval(countdown);
-    countdown = setInterval(() => {
-        if (timeLeft > 0) {
-            timeLeft--;
-            displayTime(timeLeft);
-        } 
-        else {
-            clearInterval(countdown);
-            alert("Time for a dart mate")
-        }
-    }, 1000);
+    try {
+        const userCredential = await signInWithEmailandPassword(auth, email, password);
+        console.log("User logged:", userCredential.user);
+        errorMessage.textContent = "Login successful!";
+        errorMessage.style.color = "green";
 
-}
-
-function resetTimer() {
-    clearInterval(countdown);
-    timeLeft = 500;
-    displayTime(timeLeft);
-}
-
-startButton.addEventListener("click", startTimer);
-resetButton.addEventListener("click", resetTimer);
-
-displayTime(timeLeft);
+    } catch (error) {
+        console.error("Error logging in:", error.message);
+        errorMessage.textContent = error.message;
+        errorMessage.style.color = "red";
+    }
+});

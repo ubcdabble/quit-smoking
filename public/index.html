@@ -5,25 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Quit Smoking Around</title>
+    <title>Quit Smoking Around Login Screen</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header class="app-header">
-        <h1>Quit Smoking Around Timer</h1>
-    </header>
-    <main>
-        <section class="progress">
-            <h2>Track time between smokes</h2>
-            <p id="time-between-smokes">Time from last smoke: 0</p>
-        </section>
-    </main>
-
-    <div class="timer-container">
-        <h1 id="timer">00:00:00</h1>
-        <button id="startButton">Start</button>
-        <button id="resetButton">Reset</button>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <input type="email" id="email" placeholder="johnsmith@gmail.com" required>
+            <input type="password" id="password" placeholder="verygoodpassword" required>
+            <button type="submit">LOGIN</button>
+        </form>
+        <p id="error-message"></p>
     </div>
     
     <script src="firebaseConfig.js"></script>

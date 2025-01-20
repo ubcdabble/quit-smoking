@@ -1,24 +1,30 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 // Handle Login
-const loginForm = document.getElementById("login-form")
-const errorMessage = document.getElementById("error-message")
+const loginForm = document.getElementById("login-form");
+const errorMessage = document.getElementById("error-message");
 
 loginForm.addEventListener("submit", async (event) => {
-    event.preventDefault()
+  event.preventDefault();
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-    try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log("User logged:", userCredential.user);
-        errorMessage.textContent = "Login successful!";
-        errorMessage.style.color = "green";
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
 
-    } catch (error) {
-        console.error("Error logging in:", error.message);
-        errorMessage.textContent = error.message;
-        errorMessage.style.color = "red";
-    }
+    // Show success message
+    errorMessage.textContent = "Login successful! Welcome, " + user.email;
+    errorMessage.style.color = "green";
+
+    // Optional: Redirect or perform additional actions
+    console.log("User logged in:", user);
+  } catch (error) {
+    // Show error message
+    errorMessage.textContent = error.message;
+    errorMessage.style.color = "red";
+
+    console.error("Login failed:", error);
+  }
 });

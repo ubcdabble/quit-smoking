@@ -1,3 +1,4 @@
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 // Handle Login
 const loginForm = document.getElementById("login-form")

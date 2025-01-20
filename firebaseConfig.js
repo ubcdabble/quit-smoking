@@ -1,20 +1,20 @@
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
 
 // Load environment variables
-dotenv.config();
+// dotenv.config();
 
 const firebaseConfig = {
-    apiKey: process.env.FIREBASE_API_KEY,
-    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-    databaseURL: process.env.FIREBASE_DB_URL,
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.FIREBASE_APP_ID
+    apiKey: "AIzaSyAFUEQxm6vJb3BkMQmoUEvVhjVowVPj1XM",
+    authDomain: "quit-smoking-around.firebaseapp.com",
+    databaseURL: "https://quit-smoking-around-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "quit-smoking-around",
+    storageBucket: "quit-smoking-around.firebasestorage.app",
+    messagingSenderId: "105905148242",
+    appId: "1:105905148242:web:35bf6a1cabeb73b0006a8b"
 };
 
 const app = initializeApp(firebaseConfig.js);

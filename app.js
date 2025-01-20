@@ -10,7 +10,7 @@ loginForm.addEventListener("submit", async (event) => {
     const password = document.getElementById("password").value;
 
     try {
-        const userCredential = await signInWithEmailandPassword(auth, email, password);
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
         console.log("User logged:", userCredential.user);
         errorMessage.textContent = "Login successful!";
         errorMessage.style.color = "green";

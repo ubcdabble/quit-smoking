@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 import { auth, db} from "./firebaseConfig.js"
 
 signInWithEmailAndPassword(auth, email, password)
